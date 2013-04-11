@@ -19,12 +19,10 @@ namespace MyLittlePonySlenderMan
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-    #region Sound
-        AudioEngine audioEngine;
-        WaveBank waveBank;
-        SoundBank soundBank;
-        Cue trackCue;
-    #endregion
+        #region Sound
+        private SoundEffect _backgroundMusic;
+        #endregion
+
 
         Background _background;
         Ponies _pony;
@@ -82,11 +80,12 @@ namespace MyLittlePonySlenderMan
             _slender.Load(Content);
 
             #region Sound
+            _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
 
-            //audioEngine = new AudioEngine(@"Content\Audio\GameAudio.xgs");
-            //waveBank = new WaveBank(audioEngine, @"Content\Audio\Wave Bank.xwb");
-            //soundBank = new SoundBank(audioEngine, @"Content\Audio\Sound Bank.xsb");
-            
+            SoundEffectInstance instance = _backgroundMusic.CreateInstance();
+            instance.IsLooped = true;
+
+            _backgroundMusic.Play();
             #endregion
         }
 
