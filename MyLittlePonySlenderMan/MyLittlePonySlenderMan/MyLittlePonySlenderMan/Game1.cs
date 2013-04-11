@@ -20,7 +20,7 @@ namespace MyLittlePonySlenderMan
         SpriteBatch spriteBatch;
 
     #region Sound
-        private SoundEffect _backgroundMusic;
+        private SoundEffectInstance _backgroundMusic;
     #endregion
 
         Background _background;
@@ -88,10 +88,9 @@ namespace MyLittlePonySlenderMan
                 
 
                 #region Sound
-                _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
+                _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2").CreateInstance();
 
-                SoundEffectInstance instance = _backgroundMusic.CreateInstance();
-                instance.IsLooped = true;
+                _backgroundMusic.IsLooped = true;
 
                 _backgroundMusic.Play();            
                 #endregion
