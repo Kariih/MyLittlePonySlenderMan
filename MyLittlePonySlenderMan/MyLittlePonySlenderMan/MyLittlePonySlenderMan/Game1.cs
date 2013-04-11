@@ -148,7 +148,11 @@ namespace MyLittlePonySlenderMan
                 if (_isPlaying)
                 {
                     _pony.Update(gameTime);
+
+                    if (_item.CountCollected() > 1)
                     _slender.Update(gameTime, _cameraPosition + new Vector2(380, 220));
+
+
                     Rectangle playerBounds = _pony.Bounds;
                     playerBounds.Location = new Point((int)(_cameraPosition.X + 379), (int)(_cameraPosition.Y+210));
                     if (playerBounds.Intersects(_slender.Bounds))
@@ -244,19 +248,20 @@ namespace MyLittlePonySlenderMan
             {
                 _ponyButtons.Draw(spriteBatch);
                 spriteBatch.DrawString(_font, "Choose a pony", new Vector2(100, 5), Color.White);
+                spriteBatch.DrawString(_font, "START THE GAME BY KLICKING ON A PONY", new Vector2(250, 300), Color.White);
             }
             else
                 spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(50, 0), Color.White);
-            spriteBatch.Draw(_cursor, _cursorPosition - new Vector2(30, 30), Color.White);
             _item.DrawList(spriteBatch);
             if (won)
             {
-                spriteBatch.DrawString(_font, "YOU ESCAPE THE SLENDERMAN", new Vector2(250, 200), Color.White);
+                spriteBatch.DrawString(_font, "YOU ESCAPED THE SLENDERMAN", new Vector2(280, 200), Color.White);
             }
             if (lost)
             {
-                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(250, 200), Color.White);
+                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(260, 200), Color.White);
             }
+            spriteBatch.Draw(_cursor, _cursorPosition - new Vector2(30, 30), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

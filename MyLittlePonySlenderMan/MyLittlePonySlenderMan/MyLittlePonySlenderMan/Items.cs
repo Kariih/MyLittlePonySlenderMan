@@ -108,5 +108,18 @@ namespace MyLittlePonySlenderMan
             }
             return true;
         }
+        public int CountCollected()
+        { 
+        int count = 0;
+        foreach (bool b in found)
+        {
+            if (b)
+            {
+                count++;
+            }
+
+           }
+        return count;
+        }
     }
 }
