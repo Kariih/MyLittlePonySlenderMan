@@ -80,6 +80,7 @@ namespace MyLittlePonySlenderMan
             _font = Content.Load<SpriteFont>("SpriteFont1");
             _cursor = Content.Load<Texture2D>("cursor");
             _slender.Load(Content);
+            _item.LoadItems(Content);
 
             #region Sound
 
