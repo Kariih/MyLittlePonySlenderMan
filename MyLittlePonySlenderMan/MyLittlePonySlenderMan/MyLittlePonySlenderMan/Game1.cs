@@ -70,7 +70,7 @@ namespace MyLittlePonySlenderMan
                 _background = new Background();
                 _ponyButtons = new Ponybuttons();
             }
-           _cameraPosition = new Vector2(250, 250);
+           _cameraPosition = new Vector2(360, 250);
            _slender = new Slender(new Vector2(700, 700));
            _item = new Items();
            this.IsMouseVisible = false;
@@ -287,11 +287,11 @@ namespace MyLittlePonySlenderMan
             _item.DrawList(spriteBatch);
             if (won)
             {
-                spriteBatch.DrawString(_font, "YOU ESCAPED THE SLENDERMAN", new Vector2(280, 200), Color.Purple);
+                spriteBatch.DrawString(_font, "YOU ESCAPED THE SLENDERMAN", new Vector2(280, 120), Color.Purple);
             }
             if (lost)
             {
-                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(260, 200), Color.Purple);
+                spriteBatch.DrawString(_font, "YOU WAS DESTROYED BY THE SLENDERMAN", new Vector2(260, 120), Color.Purple);
             }
             if(isPaused)
                 spriteBatch.DrawString(_font, "PAUSE", new Vector2(370, 250), Color.White);
