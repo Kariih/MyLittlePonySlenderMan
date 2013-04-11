@@ -268,9 +268,9 @@ namespace MyLittlePonySlenderMan
             _background.Draw(spriteBatch, _cameraPosition);
             if (_pony != null)
             {
+                _item.DrawItems(spriteBatch, _cameraPosition);
                 _pony.Draw(spriteBatch);
                 _slender.Draw(spriteBatch, _cameraPosition);
-                _item.DrawItems(spriteBatch, _cameraPosition);
             }
             spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
             if (!_isPlaying)

@@ -163,6 +163,15 @@
       <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb</Output>
       <Time>2013-04-11T17:46:33+02:00</Time>
     </Item>
+    <Item>
+      <Source>background - Edit110413 - Darker 2.png</Source>
+      <Name>background - Edit110413 - Darker 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb</Output>
+      <Time>2013-04-11T21:56:40+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

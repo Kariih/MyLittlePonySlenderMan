@@ -113,3 +113,4 @@ C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\M
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\bigpack.xnb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
+Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
