@@ -37,6 +37,8 @@ namespace MyLittlePonySlenderMan
         private bool won;
         private bool lost;
         private bool backgroundMusicPlaying = true;
+        private bool isPaused;
+
 
         private KeyboardState previousKeyboardState;
 
@@ -50,6 +52,9 @@ namespace MyLittlePonySlenderMan
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             _firstPlay = true;
+
+  //          graphics.PreferredBackBufferWidth = 500;
+  //          graphics.PreferredBackBufferHeight = 400;
         }
 
         /// <summary>
@@ -132,7 +137,6 @@ namespace MyLittlePonySlenderMan
 
             KeyboardState keyboardState = Keyboard.GetState();
 
-
             if (keyboardState.IsKeyDown(Keys.P) && previousKeyboardState.IsKeyUp(Keys.P))
             {
                 if (this.backgroundMusicPlaying) _backgroundMusic.Pause();
@@ -141,106 +145,114 @@ namespace MyLittlePonySlenderMan
                 backgroundMusicPlaying = !backgroundMusicPlaying;
             }
 
-            if (keyboardState.IsKeyDown(Keys.Escape))
+            if (keyboardState.IsKeyDown(Keys.M) && previousKeyboardState.IsKeyUp(Keys.M))
             {
-                Initialize();
-                _isPlaying = false;
-                _ponyButtons.HasChosen = false;
-                _firstPlay = false;
-                _pony = null;
-                won = false;
-                lost = false;
+
+                isPaused = !isPaused;
             }
 
-            if (!won && !lost)
+            if (!isPaused)
             {
-                if (_item.CollectedAll())
+                if (keyboardState.IsKeyDown(Keys.Escape))
                 {
-                    won = true;
+                    Initialize();
+                    _isPlaying = false;
+                    _ponyButtons.HasChosen = false;
+                    _firstPlay = false;
+                    _pony = null;
+                    won = false;
+                    lost = false;
                 }
 
-
-                if (_isPlaying)
+                if (!won && !lost)
                 {
-                    _pony.Update(gameTime);
-
-                    if (_item.CountCollected() > 1)
-                    _slender.Update(gameTime, _cameraPosition + new Vector2(380, 220));
-
-
-                    Rectangle playerBounds = _pony.Bounds;
-                    playerBounds.Location = new Point((int)(_cameraPosition.X + 379), (int)(_cameraPosition.Y+210));
-                    if (playerBounds.Intersects(_slender.Bounds))
+                    if (_item.CollectedAll())
                     {
-                        lost = true;
-                    }
-                    _item.Update(_cameraPosition);
-                    #region keyboard
-                    
-
-                    if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
-                    {
-                        _cameraPosition.X += _speed;
-                    }
-                    if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
-                    {
-                        _cameraPosition.X -= _speed;
-                    }
-                    if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
-                    {
-                        _cameraPosition.Y -= _speed;
-                    }
-                    if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
-                    {
-                        _cameraPosition.Y += _speed;
-                    }
-                    #endregion
-
-
-                    GamePadState gs = GamePad.GetState(PlayerIndex.One);
-
-                    if (gs.ThumbSticks.Left.Length() != 0)
-                    {
-                        _cameraPosition += gs.ThumbSticks.Left * new Vector2(_speed, -_speed);
+                        won = true;
                     }
 
-                    float minX = -150;
-                    float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
-                    float minY = -70;
-                    float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
+
+                    if (_isPlaying)
+                    {
+                        _pony.Update(gameTime);
+
+                        if (_item.CountCollected() > 1)
+                            _slender.Update(gameTime, _cameraPosition + new Vector2(380, 220));
 
 
-                    if (_cameraPosition.X < minX)
-                    {
-                        _cameraPosition.X = minX;
+                        Rectangle playerBounds = _pony.Bounds;
+                        playerBounds.Location = new Point((int)(_cameraPosition.X + 379), (int)(_cameraPosition.Y + 210));
+                        if (playerBounds.Intersects(_slender.Bounds))
+                        {
+                            lost = true;
+                        }
+                        _item.Update(_cameraPosition);
+                        #region keyboard
+
+
+                        if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
+                        {
+                            _cameraPosition.X += _speed;
+                        }
+                        if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
+                        {
+                            _cameraPosition.X -= _speed;
+                        }
+                        if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
+                        {
+                            _cameraPosition.Y -= _speed;
+                        }
+                        if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
+                        {
+                            _cameraPosition.Y += _speed;
+                        }
+                        #endregion
+
+
+                        GamePadState gs = GamePad.GetState(PlayerIndex.One);
+
+                        if (gs.ThumbSticks.Left.Length() != 0)
+                        {
+                            _cameraPosition += gs.ThumbSticks.Left * new Vector2(_speed, -_speed);
+                        }
+
+                        float minX = -150;
+                        float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
+                        float minY = -70;
+                        float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
+
+
+                        if (_cameraPosition.X < minX)
+                        {
+                            _cameraPosition.X = minX;
+                        }
+                        if (_cameraPosition.X >= maxX)
+                        {
+                            _cameraPosition.X = maxX;
+                        }
+                        if (_cameraPosition.Y < minY)
+                        {
+                            _cameraPosition.Y = minY;
+                        }
+                        if (_cameraPosition.Y >= maxY)
+                        {
+                            _cameraPosition.Y = maxY;
+                        }
                     }
-                    if (_cameraPosition.X >= maxX)
+                    else
                     {
-                        _cameraPosition.X = maxX;
+                        _ponyButtons.Update();
+                        if (_ponyButtons.HasChosen)
+                        {
+                            _pony = new Ponies(_ponyButtons.Choice);
+                            _pony.LoadPonies(Content);
+                            _isPlaying = true;
+                        }
                     }
-                    if (_cameraPosition.Y < minY)
-                    {
-                        _cameraPosition.Y = minY;
-                    }
-                    if (_cameraPosition.Y >= maxY)
-                    {
-                        _cameraPosition.Y = maxY;
-                    }
+
                 }
-                else
-                {
-                    _ponyButtons.Update();
-                    if (_ponyButtons.HasChosen)
-                    {
-                        _pony = new Ponies(_ponyButtons.Choice);
-                        _pony.LoadPonies(Content);
-                        _isPlaying = true;
-                    }
-                }
-
-                this.previousKeyboardState = Keyboard.GetState();
             }
-
+            this.previousKeyboardState = Keyboard.GetState();
             base.Update(gameTime);
         }
 
@@ -268,7 +280,10 @@ namespace MyLittlePonySlenderMan
                 spriteBatch.DrawString(_font, "START THE GAME BY CLICKING ON A PONY", new Vector2(250, 300), Color.White);
             }
             else
+            {
                 spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(50, 0), Color.White);
+                spriteBatch.DrawString(_font, "Press \"p\" to play/pause the music. Press \"M\" for play/pause the game", new Vector2(20, 450), Color.White);
+            }
             _item.DrawList(spriteBatch);
             if (won)
             {
@@ -278,6 +293,9 @@ namespace MyLittlePonySlenderMan
             {
                 spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(260, 200), Color.White);
             }
+            if(isPaused)
+                spriteBatch.DrawString(_font, "PAUSE", new Vector2(370, 250), Color.White);
+
             spriteBatch.Draw(_cursor, _cursorPosition - new Vector2(30, 30), Color.White);
             spriteBatch.End();
 
