@@ -11,15 +11,6 @@
       <Time>2013-03-07T17:54:34+01:00</Time>
     </Item>
     <Item>
-      <Source>creeper2.png</Source>
-      <Name>creeper2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\creeper2.xnb</Output>
-      <Time>2013-03-07T17:54:34+01:00</Time>
-    </Item>
-    <Item>
       <Source>myLittlePony.png</Source>
       <Name>myLittlePony</Name>
       <Importer>TextureImporter</Importer>
@@ -162,6 +153,15 @@
       <Options>None</Options>
       <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2013-04-04T12:58:17+02:00</Time>
+    </Item>
+    <Item>
+      <Source>MySlenderPony2.wav</Source>
+      <Name>MySlenderPony2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb</Output>
+      <Time>2013-04-11T17:46:33+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

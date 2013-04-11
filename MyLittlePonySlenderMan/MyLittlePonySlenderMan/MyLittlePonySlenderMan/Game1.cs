@@ -34,6 +34,10 @@ namespace MyLittlePonySlenderMan
         SpriteFont _font;
         private Texture2D _cursor;
         private Vector2 _cursorPosition;
+        private bool won;
+        private bool lost;
+
+        private bool _firstPlay;
         
 
         private bool _isPlaying;
@@ -42,6 +46,7 @@ namespace MyLittlePonySlenderMan
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            _firstPlay = true;
         }
 
         /// <summary>
@@ -52,10 +57,13 @@ namespace MyLittlePonySlenderMan
         /// </summary>
         protected override void Initialize()
         {
-           _background = new Background();
-           _ponyButtons = new Ponybuttons();
+            if (_firstPlay)
+            {
+                _background = new Background();
+                _ponyButtons = new Ponybuttons();
+            }
            _cameraPosition = new Vector2(250, 250);
-           _slender = new Slender(new Vector2(500, 500));
+           _slender = new Slender(new Vector2(700, 700));
            _item = new Items();
            this.IsMouseVisible = false;
 
@@ -69,24 +77,27 @@ namespace MyLittlePonySlenderMan
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            _background.LoadContent(Content);
-            _ponyButtons.loadButtons(Content);
-            _blackHole = Content.Load<Texture2D>("blackhole");
-            _font = Content.Load<SpriteFont>("SpriteFont1");
-            _cursor = Content.Load<Texture2D>("cursor");
+            if(_firstPlay){
+                // Create a new SpriteBatch, which can be used to draw textures.
+                spriteBatch = new SpriteBatch(GraphicsDevice);
+                _background.LoadContent(Content);
+                _ponyButtons.loadButtons(Content);
+                _blackHole = Content.Load<Texture2D>("blackhole");
+                _font = Content.Load<SpriteFont>("SpriteFont1");
+                _cursor = Content.Load<Texture2D>("cursor");
+                
+
+                #region Sound
+                _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
+
+                SoundEffectInstance instance = _backgroundMusic.CreateInstance();
+                instance.IsLooped = true;
+
+                _backgroundMusic.Play();            
+                #endregion
+            }
             _slender.Load(Content);
             _item.LoadItems(Content);
-
-            #region Sound
-            _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
-
-            SoundEffectInstance instance = _backgroundMusic.CreateInstance();
-            instance.IsLooped = true;
-
-            _backgroundMusic.Play();            
-            #endregion
         }
 
         /// <summary>
@@ -109,81 +120,105 @@ namespace MyLittlePonySlenderMan
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
             MouseState mouseState = Mouse.GetState();
             _cursorPosition = new Vector2(mouseState.X, mouseState.Y);
 
-            if (_isPlaying)
+            KeyboardState keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.Escape))
             {
-                _pony.Update(gameTime);
-                _slender.Update(gameTime, _cameraPosition + new Vector2(380, 220));
-                #region keyboard
-                KeyboardState keyboardState = Keyboard.GetState();
-
-                if (keyboardState.IsKeyDown(Keys.Escape))
-                {
-                    _isPlaying = false;
-                    _ponyButtons.HasChosen = false;
-                }
-
-                if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
-                {
-                    _cameraPosition.X += _speed;
-                }
-                if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
-                {
-                    _cameraPosition.X -= _speed;
-                }
-                if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
-                {
-                    _cameraPosition.Y -= _speed;
-                }
-                if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
-                {
-                    _cameraPosition.Y += _speed;
-                }
-                #endregion
-
-                GamePadState gs = GamePad.GetState(PlayerIndex.One);
-
-                if (gs.ThumbSticks.Left.Length() != 0)
-                {
-                    _cameraPosition += gs.ThumbSticks.Left * new Vector2(_speed, -_speed);
-                }
-
-                float minX = -150;
-                float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
-                float minY = -70;
-                float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
-
-
-                if (_cameraPosition.X < minX)
-                {
-                    _cameraPosition.X = minX;
-                }
-                if (_cameraPosition.X >= maxX)
-                {
-                    _cameraPosition.X = maxX;
-                }
-                if (_cameraPosition.Y < minY)
-                {
-                    _cameraPosition.Y = minY;
-                }
-                if (_cameraPosition.Y >= maxY)
-                {
-                    _cameraPosition.Y = maxY;
-                }
-            }
-            else
-            {
-                _ponyButtons.Update();
-                if (_ponyButtons.HasChosen)
-                {
-                    _pony = new Ponies(_ponyButtons.Choice);
-                    _pony.LoadPonies(Content);
-                    _isPlaying = true;
-                }
+                Initialize();
+                _isPlaying = false;
+                _ponyButtons.HasChosen = false;
+                _firstPlay = false;
+                _pony = null;
+                won = false;
+                lost = false;
             }
 
+            if (!won && !lost)
+            {
+                if (_item.CollectedAll())
+                {
+                    won = true;
+                }
+
+
+                if (_isPlaying)
+                {
+                    _pony.Update(gameTime);
+                    _slender.Update(gameTime, _cameraPosition + new Vector2(380, 220));
+                    Rectangle playerBounds = _pony.Bounds;
+                    playerBounds.Location = new Point((int)(_cameraPosition.X + 379), (int)(_cameraPosition.Y+210));
+                    if (playerBounds.Intersects(_slender.Bounds))
+                    {
+                        lost = true;
+                    }
+                    _item.Update(_cameraPosition);
+                    #region keyboard
+                    
+
+                    if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
+                    {
+                        _cameraPosition.X += _speed;
+                    }
+                    if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
+                    {
+                        _cameraPosition.X -= _speed;
+                    }
+                    if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
+                    {
+                        _cameraPosition.Y -= _speed;
+                    }
+                    if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
+                    {
+                        _cameraPosition.Y += _speed;
+                    }
+                    #endregion
+
+
+                    GamePadState gs = GamePad.GetState(PlayerIndex.One);
+
+                    if (gs.ThumbSticks.Left.Length() != 0)
+                    {
+                        _cameraPosition += gs.ThumbSticks.Left * new Vector2(_speed, -_speed);
+                    }
+
+                    float minX = -150;
+                    float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
+                    float minY = -70;
+                    float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
+
+
+                    if (_cameraPosition.X < minX)
+                    {
+                        _cameraPosition.X = minX;
+                    }
+                    if (_cameraPosition.X >= maxX)
+                    {
+                        _cameraPosition.X = maxX;
+                    }
+                    if (_cameraPosition.Y < minY)
+                    {
+                        _cameraPosition.Y = minY;
+                    }
+                    if (_cameraPosition.Y >= maxY)
+                    {
+                        _cameraPosition.Y = maxY;
+                    }
+                }
+                else
+                {
+                    _ponyButtons.Update();
+                    if (_ponyButtons.HasChosen)
+                    {
+                        _pony = new Ponies(_ponyButtons.Choice);
+                        _pony.LoadPonies(Content);
+                        _isPlaying = true;
+                    }
+                }
+            }
 
             base.Update(gameTime);
         }
@@ -198,20 +233,30 @@ namespace MyLittlePonySlenderMan
 
             spriteBatch.Begin();
             _background.Draw(spriteBatch, _cameraPosition);
-            if(_pony != null)
+            if (_pony != null)
+            {
                 _pony.Draw(spriteBatch);
-            _slender.Draw(spriteBatch, _cameraPosition);
-            _item.DrawItems(spriteBatch);
+                _slender.Draw(spriteBatch, _cameraPosition);
+                _item.DrawItems(spriteBatch, _cameraPosition);
+            }
             spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
             if (!_isPlaying)
             {
                 _ponyButtons.Draw(spriteBatch);
-                spriteBatch.DrawString(_font, "Velg en pony", new Vector2(100, 5), Color.White);
+                spriteBatch.DrawString(_font, "Choose a pony", new Vector2(100, 5), Color.White);
             }
             else
-                spriteBatch.DrawString(_font, "Trykk \"esc\" hvis du vil velge ny pony", new Vector2(50, 0), Color.White);
+                spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(50, 0), Color.White);
             spriteBatch.Draw(_cursor, _cursorPosition - new Vector2(30, 30), Color.White);
             _item.DrawList(spriteBatch);
+            if (won)
+            {
+                spriteBatch.DrawString(_font, "YOU ESCAPE THE SLENDERMAN", new Vector2(250, 200), Color.White);
+            }
+            if (lost)
+            {
+                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(250, 200), Color.White);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);

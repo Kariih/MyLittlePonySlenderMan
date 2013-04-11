@@ -21,6 +21,14 @@ namespace MyLittlePonySlenderMan
         private Vector2 _position;
         private int _wayToGo;
 
+        protected Rectangle _relativeBounds;
+        public Rectangle Bounds
+        {
+            get
+            {
+                return new Rectangle((int)(_relativeBounds.X + _position.X), (int)(_relativeBounds.Y + _position.Y), _relativeBounds.Width, _relativeBounds.Height);
+            }
+        }
 
         private Point _ponyPoint;
         private Point[] PonyList = { new Point(0,0),
@@ -35,6 +43,7 @@ namespace MyLittlePonySlenderMan
 
         public Ponies(int pony)
         {
+            _relativeBounds = new Rectangle(0, 0, 20, 30);
             _ponyPoint = PonyList[pony];
             _position = new Vector2(365, 220);
         }

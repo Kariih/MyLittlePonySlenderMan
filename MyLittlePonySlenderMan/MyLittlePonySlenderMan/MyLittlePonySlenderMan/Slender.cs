@@ -22,27 +22,37 @@ namespace MyLittlePonySlenderMan
         private Vector2 _position;
         private int _wayToGo;
 
+        protected Rectangle _relativeBounds;
+        public Rectangle Bounds
+        {
+            get
+            {
+                return new Rectangle((int)(_relativeBounds.X + _position.X), (int)(_relativeBounds.Y + _position.Y), _relativeBounds.Width, _relativeBounds.Height);
+            }
+        }
+
         public Slender(Vector2 position)
         {
+            _relativeBounds = new Rectangle(0, 0, 20, 30);
 
             _position = position;
             _frames = new Rectangle[4, 4];
-            _frames[0, 0] = new Rectangle(24, 0 , 24, 43);
-            _frames[0, 1] = new Rectangle(0 , 0 , 24, 43);
-            _frames[0, 2] = new Rectangle(48, 0 , 24, 43);
-            _frames[0, 3] = new Rectangle(0 , 0 , 24, 43);
+            _frames[0, 0] = new Rectangle(24, 0, 24, 43);
+            _frames[0, 1] = new Rectangle(0, 0, 24, 43);
+            _frames[0, 2] = new Rectangle(48, 0, 24, 43);
+            _frames[0, 3] = new Rectangle(0, 0, 24, 43);
             _frames[1, 0] = new Rectangle(24, 43, 24, 43);
-            _frames[1, 1] = new Rectangle(0 , 43, 24, 43);
+            _frames[1, 1] = new Rectangle(0, 43, 24, 43);
             _frames[1, 2] = new Rectangle(48, 43, 24, 43);
-            _frames[1, 3] = new Rectangle(0 , 43, 24, 43);
+            _frames[1, 3] = new Rectangle(0, 43, 24, 43);
             _frames[2, 0] = new Rectangle(24, 86, 24, 43);
-            _frames[2, 1] = new Rectangle(0 , 86, 24, 43);
+            _frames[2, 1] = new Rectangle(0, 86, 24, 43);
             _frames[2, 2] = new Rectangle(48, 86, 24, 43);
-            _frames[2, 3] = new Rectangle(0 , 86, 24, 43);
+            _frames[2, 3] = new Rectangle(0, 86, 24, 43);
             _frames[3, 0] = new Rectangle(48, 86, 24, 43);
-            _frames[3, 1] = new Rectangle(0 , 86, 24, 43);
+            _frames[3, 1] = new Rectangle(0, 86, 24, 43);
             _frames[3, 2] = new Rectangle(24, 86, 24, 43);
-            _frames[3, 3] = new Rectangle(0 , 86, 24, 43);
+            _frames[3, 3] = new Rectangle(0, 86, 24, 43);
         }
         public void Load(ContentManager content)
         {

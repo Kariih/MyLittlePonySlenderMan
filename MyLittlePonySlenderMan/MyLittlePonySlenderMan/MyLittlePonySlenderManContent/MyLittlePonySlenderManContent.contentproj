@@ -47,11 +47,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="creeper2.png">
-      <Name>creeper2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="myLittlePony.png">
       <Name>myLittlePony</Name>
       <Importer>TextureImporter</Importer>

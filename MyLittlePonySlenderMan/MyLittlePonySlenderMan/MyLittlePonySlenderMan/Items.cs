@@ -36,33 +36,33 @@ namespace MyLittlePonySlenderMan
 
             PackList = new Vector2[5]
              {
-            new Vector2(650, 0),
-            new Vector2(710, 0),
-            new Vector2(760, 0),
-            new Vector2(710, 0),
-            new Vector2(760, 0)
+            new Vector2(530, 0),
+            new Vector2(580, 0),
+            new Vector2(630, 0),
+            new Vector2(680, 0),
+            new Vector2(730, 0)
             };
 
             itemPosition = new Vector2[5]
              {
-            new Vector2(200, 180),
-            new Vector2(220, 200),
-            new Vector2(240, 220),
-            new Vector2(260, 240),
-            new Vector2(280, 250)
+            new Vector2(250, 690),
+            new Vector2(220, 370),
+            new Vector2(950, 830),
+            new Vector2(1700, 670),
+            new Vector2(650, 670)
             };
 
 
         }
 
-        public void Update()
+        public void Update(Vector2 cameraPos)
         {
            MouseState ms = Mouse.GetState();
 
            for (int i = 0; i < itemPosition.Length; i++)
            {
                if (ms.LeftButton == ButtonState.Pressed &&
-                   (new Rectangle((int)itemPosition[i].X, (int)itemPosition[i].Y, _width, _height))
+                   (new Rectangle((int)(itemPosition[i].X - cameraPos.X), (int)(itemPosition[i].Y - cameraPos.Y), _width, _height))
                    .Contains(new Point(ms.X, ms.Y)))
                {
                    found[i] = true;
@@ -77,11 +77,12 @@ namespace MyLittlePonySlenderMan
 
 
         }
-        public void DrawItems(SpriteBatch spritebatch)
+        public void DrawItems(SpriteBatch spritebatch, Vector2 cameraPos)
         { 
             for(int i = 0; i < PackList.Length; i++)
             {
-                spritebatch.Draw(smallPack, new Rectangle((int)itemPosition[i].X, (int)itemPosition[i].X, _width, _height), Color.White);
+                if(!found[i])
+                spritebatch.Draw(smallPack, new Rectangle((int)(itemPosition[i].X - cameraPos.X), (int)(itemPosition[i].Y - cameraPos.Y), _width, _height), Color.White);
 
             }
         }
@@ -89,10 +90,23 @@ namespace MyLittlePonySlenderMan
         {
             for (int i = 0; i < found.Length; i++)
             {
-                spritebatch.Draw(bigPack, new Rectangle((int)PackList[i].X, (int)PackList[i].X, 65, 65), Color.White);
+                if(found[i])
+                spritebatch.Draw(bigPack, new Rectangle((int)PackList[i].X, (int)PackList[i].Y, 65, 65), Color.White);
 
             }
         
+        }
+
+        public bool CollectedAll()
+        {
+            foreach (bool b in found)
+            {
+                if (!b)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
