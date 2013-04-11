@@ -110,3 +110,6 @@ Z:\NITH\XNA\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan
 Z:\NITH\XNA\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 Z:\NITH\XNA\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.exe
 Z:\NITH\XNA\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.pdb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\smallpack.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\bigpack.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb

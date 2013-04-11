@@ -23,8 +23,6 @@ namespace MyLittlePonySlenderMan
         private Vector2[] PackList;
         private Vector2[] itemPosition;
 
-        MouseState mouseStateCurrent;
-
         private int _height;
         private int _width;
 
@@ -38,20 +36,20 @@ namespace MyLittlePonySlenderMan
 
             PackList = new Vector2[5]
              {
-            new Vector2(650, -20),
-            new Vector2(710, -20),
-            new Vector2(760, -20),
-            new Vector2(710, -20),
-            new Vector2(760, -20)
+            new Vector2(650, 0),
+            new Vector2(710, 0),
+            new Vector2(760, 0),
+            new Vector2(710, 0),
+            new Vector2(760, 0)
             };
 
             itemPosition = new Vector2[5]
              {
-            new Vector2(650, -20),
-            new Vector2(710, -20),
-            new Vector2(760, -20),
-            new Vector2(710, -20),
-            new Vector2(760, -20)
+            new Vector2(200, 180),
+            new Vector2(220, 200),
+            new Vector2(240, 220),
+            new Vector2(260, 240),
+            new Vector2(280, 250)
             };
 
 
@@ -83,7 +81,7 @@ namespace MyLittlePonySlenderMan
         { 
             for(int i = 0; i < PackList.Length; i++)
             {
-                spritebatch.Draw(bigPack, new Rectangle((int)PackList[i].X, (int)PackList[i].X, _width, _height), Color.White);
+                spritebatch.Draw(smallPack, new Rectangle((int)itemPosition[i].X, (int)itemPosition[i].X, _width, _height), Color.White);
 
             }
         }
@@ -91,7 +89,7 @@ namespace MyLittlePonySlenderMan
         {
             for (int i = 0; i < found.Length; i++)
             {
-                spritebatch.Draw(bigPack, new Rectangle((int)itemPosition[i].X, (int)itemPosition[i].X, 65, 65), Color.White);
+                spritebatch.Draw(bigPack, new Rectangle((int)PackList[i].X, (int)PackList[i].X, 65, 65), Color.White);
 
             }
         
