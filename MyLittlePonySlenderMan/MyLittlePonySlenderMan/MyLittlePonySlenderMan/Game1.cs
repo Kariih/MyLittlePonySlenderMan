@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> awldhfaleiwuhf
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,12 +80,12 @@ namespace MyLittlePonySlenderMan
             _item.LoadItems(Content);
 
             #region Sound
-           // _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
+            _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
 
-            //SoundEffectInstance instance = _backgroundMusic.CreateInstance();
-          //  instance.IsLooped = true;
+            SoundEffectInstance instance = _backgroundMusic.CreateInstance();
+            instance.IsLooped = true;
 
-           // _backgroundMusic.Play();            
+            _backgroundMusic.Play();            
             #endregion
         }
 
