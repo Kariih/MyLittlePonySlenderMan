@@ -36,6 +36,9 @@ namespace MyLittlePonySlenderMan
         private Vector2 _cursorPosition;
         private bool won;
         private bool lost;
+        private bool backgroundMusicPlaying = true;
+
+        private KeyboardState previousKeyboardState;
 
         private bool _firstPlay;
         
@@ -67,8 +70,12 @@ namespace MyLittlePonySlenderMan
            _item = new Items();
            this.IsMouseVisible = false;
 
+
+            // Calls LoadContent
            base.Initialize();
-           
+
+            // start the background music now that the media has been loaded
+            _backgroundMusic.Play();
         }
 
         /// <summary>
@@ -91,8 +98,6 @@ namespace MyLittlePonySlenderMan
                 _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2").CreateInstance();
 
                 _backgroundMusic.IsLooped = true;
-
-                _backgroundMusic.Play();            
                 #endregion
             }
             _slender.Load(Content);
@@ -107,6 +112,8 @@ namespace MyLittlePonySlenderMan
         {
            
         }
+
+        
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -124,6 +131,15 @@ namespace MyLittlePonySlenderMan
             _cursorPosition = new Vector2(mouseState.X, mouseState.Y);
 
             KeyboardState keyboardState = Keyboard.GetState();
+
+
+            if (keyboardState.IsKeyDown(Keys.P) && previousKeyboardState.IsKeyUp(Keys.P))
+            {
+                if (this.backgroundMusicPlaying) _backgroundMusic.Pause();
+                else _backgroundMusic.Play();
+
+                backgroundMusicPlaying = !backgroundMusicPlaying;
+            }
 
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
@@ -221,6 +237,8 @@ namespace MyLittlePonySlenderMan
                         _isPlaying = true;
                     }
                 }
+
+                this.previousKeyboardState = Keyboard.GetState();
             }
 
             base.Update(gameTime);
@@ -247,7 +265,7 @@ namespace MyLittlePonySlenderMan
             {
                 _ponyButtons.Draw(spriteBatch);
                 spriteBatch.DrawString(_font, "Choose a pony", new Vector2(100, 5), Color.White);
-                spriteBatch.DrawString(_font, "START THE GAME BY KLICKING ON A PONY", new Vector2(250, 300), Color.White);
+                spriteBatch.DrawString(_font, "START THE GAME BY CLICKING ON A PONY", new Vector2(250, 300), Color.White);
             }
             else
                 spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(50, 0), Color.White);
