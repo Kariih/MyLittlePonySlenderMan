@@ -276,22 +276,22 @@ namespace MyLittlePonySlenderMan
             if (!_isPlaying)
             {
                 _ponyButtons.Draw(spriteBatch);
-                spriteBatch.DrawString(_font, "Choose a pony", new Vector2(100, 5), Color.White);
+                spriteBatch.DrawString(_font, "Choose a pony", new Vector2(100, 5), Color.Gray);
                 spriteBatch.DrawString(_font, "START THE GAME BY CLICKING ON A PONY", new Vector2(250, 300), Color.White);
             }
             else
             {
-                spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(50, 0), Color.White);
-                spriteBatch.DrawString(_font, "Press \"p\" to play/pause the music. Press \"M\" for play/pause the game", new Vector2(20, 450), Color.White);
+                spriteBatch.DrawString(_font, "Press \"esc\" to restart the game ", new Vector2(20, 0), Color.Gray);
+                spriteBatch.DrawString(_font, "Press \"p\" to play/pause the music. Press \"M\" for play/pause the game", new Vector2(20, 450), Color.Gray);
             }
             _item.DrawList(spriteBatch);
             if (won)
             {
-                spriteBatch.DrawString(_font, "YOU ESCAPED THE SLENDERMAN", new Vector2(280, 200), Color.White);
+                spriteBatch.DrawString(_font, "YOU ESCAPED THE SLENDERMAN", new Vector2(280, 200), Color.Purple);
             }
             if (lost)
             {
-                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(260, 200), Color.White);
+                spriteBatch.DrawString(_font, "YOU WAS DESTROYD BY THE SLENDERMAN", new Vector2(260, 200), Color.Purple);
             }
             if(isPaused)
                 spriteBatch.DrawString(_font, "PAUSE", new Vector2(370, 250), Color.White);
