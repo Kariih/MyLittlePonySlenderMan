@@ -24,6 +24,7 @@ namespace MyLittlePonySlenderMan
         {
             collitionRec.Add(new Rectangle(1, 1, 6, 6));
 
+<<<<<<< HEAD
         }
         public void Update(GameTime gametime, Rectangle playerPosition)
         {
@@ -38,6 +39,22 @@ namespace MyLittlePonySlenderMan
             }
 
         }
+=======
+        }
+        public void Update(GameTime gametime, Rectangle playerPosition)
+        {
+            playerPosition.Location = new Point((int)(playerPosition.X + 379), (int)(playerPosition.Y + 210));
+
+            foreach (Rectangle rec in collitionRec)
+            {
+                if (playerPosition.Intersects(rec))
+                {
+                    
+                }
+            }
+
+        }
+>>>>>>> origin/master
 
 
         public void LoadContent(ContentManager content)

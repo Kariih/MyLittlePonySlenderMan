@@ -134,7 +134,11 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Finished Darker Smaller 3.xnb</Output>
+<<<<<<< HEAD
       <Time>2013-04-11T09:08:50+02:00</Time>
+=======
+      <Time>2013-04-12T12:37:59+02:00</Time>
+>>>>>>> origin/master
     </Item>
     <Item>
       <Source>smallpack.png</Source>
@@ -163,6 +167,27 @@
       <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2013-04-04T12:58:17+02:00</Time>
     </Item>
+<<<<<<< HEAD
+=======
+    <Item>
+      <Source>MySlenderPony2.wav</Source>
+      <Name>MySlenderPony2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb</Output>
+      <Time>2013-04-12T12:37:59+02:00</Time>
+    </Item>
+    <Item>
+      <Source>background - Edit110413 - Darker 2.png</Source>
+      <Name>background - Edit110413 - Darker 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb</Output>
+      <Time>2013-04-12T12:37:59+02:00</Time>
+    </Item>
+>>>>>>> origin/master
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
