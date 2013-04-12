@@ -61,7 +61,6 @@ Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLi
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.exe
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.pdb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background.xnb
-C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\creeper2.xnb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\myLittlePony.xnb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\blackhole.xnb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\appleJack.xnb
@@ -114,3 +113,4 @@ C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\M
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
