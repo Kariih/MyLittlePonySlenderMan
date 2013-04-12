@@ -17,11 +17,28 @@ namespace MyLittlePonySlenderMan
         private Texture2D _map;
 
         public Rectangle Bounds { get { return _map.Bounds; } }
+        public List<Rectangle> collitionRec = new List<Rectangle>();
+        bool _crash;
 
         public Background() 
         {
+            collitionRec.Add(new Rectangle(1, 1, 6, 6));
 
         }
+        public void Update(GameTime gametime, Rectangle playerPosition)
+        {
+            playerPosition.Location = new Point((int)(playerPosition.X + 379), (int)(playerPosition.Y + 210));
+
+            foreach (Rectangle rec in collitionRec)
+            {
+                if (playerPosition.Intersects(rec))
+                {
+                    _crash = true;
+                }
+            }
+
+        }
+
 
         public void LoadContent(ContentManager content)
         {
