@@ -223,8 +223,8 @@ namespace MyLittlePonySlenderMan
 
                         float minX = -150;
                         float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
-                        float minY = -70;
-                        float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
+                        float minY = -100;
+                        float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 30;
 
 
                         if (_cameraPosition.X < minX)
@@ -277,7 +277,7 @@ namespace MyLittlePonySlenderMan
                 _pony.Draw(spriteBatch);
                 _slender.Draw(spriteBatch, _cameraPosition);
             }
-            spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
+           // spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
             if (!_isPlaying)
             {
                 _ponyButtons.Draw(spriteBatch);

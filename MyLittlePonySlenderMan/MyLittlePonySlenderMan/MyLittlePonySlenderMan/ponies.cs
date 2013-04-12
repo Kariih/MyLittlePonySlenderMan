@@ -19,7 +19,8 @@ namespace MyLittlePonySlenderMan
         private int _frame;
         private Rectangle[,] _frames;
         private Vector2 _position;
-        private int _wayToGo;
+        public int _wayToGo { get; protected set;}
+        public bool moving { get; set; }
 
         protected Rectangle _relativeBounds;
         public Rectangle Bounds
@@ -72,7 +73,7 @@ namespace MyLittlePonySlenderMan
 
         public void Update(GameTime gameTime)
         {
-            bool moving = false;
+            moving = false;
             KeyboardState keyboardState = Keyboard.GetState();
             GamePadState gamePadState = GamePad.GetState(PlayerIndex.One);
             Vector2 movement = gamePadState.ThumbSticks.Left;
