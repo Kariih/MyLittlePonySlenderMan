@@ -1,0 +1,11 @@
+Read ME! 
+
+Welcome to My Slender Pony! 
+
+This is how you play the game: 
+
+1. Firstly, you choose a character by using the mouse to click on them. 
+2. After you choose, then you start moving around with the arrowkeys or ASDW.
+3. Now you move around and have to find 5 boxes. 
+4. When you find a box, then you have to use the mouse bottum to collect it. 
+5. When you've found all the boxes, you win. If not, you get a surprise. 

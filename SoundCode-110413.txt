@@ -1,0 +1,16 @@
+(Game1 : Microsoft.Xna.Framework.Game)
+
+    #region Sound
+        private SoundEffect _backgroundMusic;
+    #endregion
+	
+(protected override void LoadContent())
+	
+	        #region Sound
+            _backgroundMusic = Content.Load<SoundEffect>("MySlenderPony2");
+
+            SoundEffectInstance instance = _backgroundMusic.CreateInstance();
+            instance.IsLooped = true;
+
+            _backgroundMusic.Play();
+            #endregion
