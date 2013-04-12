@@ -197,18 +197,22 @@ namespace MyLittlePonySlenderMan
 
                         if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
                         {
+                            if(!_background.crashRight)
                             _cameraPosition.X += _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
                         {
+                            if(!_background.crashLeft)
                             _cameraPosition.X -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
                         {
+                            if(!_background.crashUp)
                             _cameraPosition.Y -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
                         {
+                            if(!_background.crashDown)
                             _cameraPosition.Y += _speed;
                         }
                         #endregion
@@ -223,8 +227,8 @@ namespace MyLittlePonySlenderMan
 
                         float minX = -150;
                         float maxX = _background.Bounds.Width - Window.ClientBounds.Width + 150;
-                        float minY = -70;
-                        float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 70;
+                        float minY = -100;
+                        float maxY = _background.Bounds.Height - Window.ClientBounds.Height + 30;
 
 
                         if (_cameraPosition.X < minX)
@@ -277,7 +281,7 @@ namespace MyLittlePonySlenderMan
                 _pony.Draw(spriteBatch);
                 _slender.Draw(spriteBatch, _cameraPosition);
             }
-            spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
+           // spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
             if (!_isPlaying)
             {
                 _ponyButtons.Draw(spriteBatch);

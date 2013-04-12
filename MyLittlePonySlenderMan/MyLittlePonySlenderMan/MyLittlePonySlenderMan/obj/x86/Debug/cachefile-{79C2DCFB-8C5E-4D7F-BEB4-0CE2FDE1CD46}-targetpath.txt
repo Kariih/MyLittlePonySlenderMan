@@ -12,8 +12,8 @@ Content\rainbowDash.xnb
 Content\cursor.xnb
 Content\enderman.xnb
 Content\background - Finished Darker Smaller 3.xnb
-Content\SpriteFont1.xnb
 Content\smallpack.xnb
 Content\bigpack.xnb
+Content\SpriteFont1.xnb
 Content\MySlenderPony2.xnb
 Content\background - Edit110413 - Darker 2.xnb
