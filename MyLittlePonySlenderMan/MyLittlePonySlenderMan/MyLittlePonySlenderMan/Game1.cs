@@ -38,6 +38,7 @@ namespace MyLittlePonySlenderMan
         private bool lost;
         private bool backgroundMusicPlaying = true;
         private bool isPaused;
+        private Rectangle _crashRec;
 
 
         private KeyboardState previousKeyboardState;
@@ -52,6 +53,8 @@ namespace MyLittlePonySlenderMan
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             _firstPlay = true;
+            _crashRec = new Rectangle((int)_cameraPosition.X, (int)_cameraPosition.Y, 20, 20);
+
 
   //          graphics.PreferredBackBufferWidth = 500;
   //          graphics.PreferredBackBufferHeight = 400;
@@ -136,6 +139,8 @@ namespace MyLittlePonySlenderMan
             _cursorPosition = new Vector2(mouseState.X, mouseState.Y);
 
             KeyboardState keyboardState = Keyboard.GetState();
+
+            _background.Update(gameTime, _crashRec);
 
             if (keyboardState.IsKeyDown(Keys.P) && previousKeyboardState.IsKeyUp(Keys.P))
             {

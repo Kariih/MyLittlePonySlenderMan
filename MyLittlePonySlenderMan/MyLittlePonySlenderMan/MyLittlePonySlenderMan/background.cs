@@ -22,6 +22,20 @@ namespace MyLittlePonySlenderMan
         {
 
         }
+        public void Update(GameTime gametime, Rectangle playerPosition)
+        {
+            playerPosition.Location = new Point((int)(playerPosition.X + 379), (int)(playerPosition.Y + 210));
+
+            foreach (Rectangle rec in collitionRec)
+            {
+                if (playerPosition.Intersects(rec))
+                {
+                    _crash = true;
+                }
+            }
+
+        }
+
 
         public void LoadContent(ContentManager content)
         {
