@@ -33,7 +33,7 @@ namespace MyLittlePonySlenderMan
             {
                 if (playerPosition.Intersects(rec))
                 {
-                    _crash = true;
+                    
                 }
             }
 
