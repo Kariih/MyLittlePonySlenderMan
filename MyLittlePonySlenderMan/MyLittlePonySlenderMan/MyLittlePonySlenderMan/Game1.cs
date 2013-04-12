@@ -197,18 +197,22 @@ namespace MyLittlePonySlenderMan
 
                         if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
                         {
+                            if(!_background.crashRight)
                             _cameraPosition.X += _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
                         {
+                            if(!_background.crashLeft)
                             _cameraPosition.X -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
                         {
+                            if(!_background.crashUp)
                             _cameraPosition.Y -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
                         {
+                            if(!_background.crashDown)
                             _cameraPosition.Y += _speed;
                         }
                         #endregion
