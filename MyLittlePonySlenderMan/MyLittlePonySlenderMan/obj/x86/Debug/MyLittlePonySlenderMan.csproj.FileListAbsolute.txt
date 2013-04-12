@@ -114,3 +114,28 @@ C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\M
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
 Z:\Git\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
 C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\myLittlePony.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\blackhole.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\appleJack.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\Rarity.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\Trixie.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\twilightSparkle.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\derpyHooves.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\pinkiePie.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\fluttershy.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\rainbowDash.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\cursor.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\enderman.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Finished Darker Smaller 3.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\smallpack.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\bigpack.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\background - Edit110413 - Darker 2.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\Content\MySlenderPony2.xnb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\MyLittlePonySlenderMan.exe
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\bin\x86\Debug\MyLittlePonySlenderMan.pdb
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.exe
+C:\Users\Beeccy\Documents\GitHub\MyLittlePonySlenderMan\MyLittlePonySlenderMan\MyLittlePonySlenderMan\obj\x86\Debug\MyLittlePonySlenderMan.pdb

@@ -12,8 +12,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace MyLittlePonySlenderMan
 {
-    class Ponybuttons
+    public class Ponybuttons
     {
+        //Variables
         #region ponies
         private Texture2D _appleJack;
         private Texture2D _derpyHooves;
@@ -27,7 +28,7 @@ namespace MyLittlePonySlenderMan
         private Texture2D[] _buttons = new Texture2D[8];
         #endregion
 
-       // private int _choice;
+        // private int _choice;
         private Vector2 _buttonPosition;
         private int _height;
         private int _width;
@@ -38,14 +39,17 @@ namespace MyLittlePonySlenderMan
 
         public bool HasChosen { get; set; }
 
+        //The positions of the button
         public Ponybuttons()
         {
             _buttonPosition = new Vector2(20, 30);
             _width = 50;
             _height = 60;
         }
-       public void loadButtons(ContentManager content)
-       {
+
+        //Loads the texture, and the array with the ponies
+        public void loadButtons(ContentManager content)
+        {
            #region PonyPictures
            _appleJack = content.Load<Texture2D>("appleJack");
            _derpyHooves = content.Load<Texture2D>("derpyHooves");
@@ -57,7 +61,7 @@ namespace MyLittlePonySlenderMan
            _twilightSparkle = content.Load<Texture2D>("twilightSparkle");
            #endregion
 
-           _buttons[0] = _twilightSparkle;
+           _buttons[0] = _twilightSparkle;  
            _buttons[1] = _appleJack;
            _buttons[2] = _fluttershy;
            _buttons[3] = _pinkiePie;
@@ -65,28 +69,30 @@ namespace MyLittlePonySlenderMan
            _buttons[5] = _rainbowDash; 
            _buttons[6] = _trixie;
            _buttons[7] = _derpyHooves;
+        }
 
-       }
-
-       public void Update() 
-       {
-           MouseState ms = Mouse.GetState();
-           if (ms.LeftButton == ButtonState.Pressed && 
+        //This updates the position of the picture of the ponies of choice
+        public void Update() 
+        {
+            MouseState ms = Mouse.GetState();
+            if (ms.LeftButton == ButtonState.Pressed && 
                (new Rectangle((int)_buttonPosition.X, (int)_buttonPosition.Y, _width * _buttons.Length, _height))
                .Contains(new Point(ms.X, ms.Y)))
-           {
+            {
                Choice = (int)((ms.X - _buttonPosition.X) / _width);
                HasChosen = true;
-           }
-       }
-       public void Draw(SpriteBatch spriteBatch)
-       {
-           for (int i = 0; i < _buttons.Length; i++)
-           {
-               spriteBatch.Draw(_buttons[i],
-                   new Rectangle((int)_buttonPosition.X + (_width * i), (int)_buttonPosition.Y, _width, _height),
-                   Color.White);
-           }
-       }
+            }
+        }
+        
+        //This draws the position of the images
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < _buttons.Length; i++)
+            {
+                   spriteBatch.Draw(_buttons[i],
+                    new Rectangle((int)_buttonPosition.X + (_width * i), (int)_buttonPosition.Y, _width, _height),
+                       Color.White);
+            }
+        }
     }
 }

@@ -12,9 +12,9 @@ using Microsoft.Xna.Framework.Media;
 
 namespace MyLittlePonySlenderMan
 {
-    class Slender
+    public class Slender
     {
-
+        //Variables
         private Texture2D _slender;
         private float _animTimer;
         private int _frame;
@@ -31,6 +31,7 @@ namespace MyLittlePonySlenderMan
             }
         }
 
+        //This show the position of the animation in the spritebatch to slenderman
         public Slender(Vector2 position)
         {
             _relativeBounds = new Rectangle(0, 0, 20, 30);
@@ -54,37 +55,48 @@ namespace MyLittlePonySlenderMan
             _frames[3, 2] = new Rectangle(24, 86, 24, 43);
             _frames[3, 3] = new Rectangle(0, 86, 24, 43);
         }
+
+        //This loads the texture of slenderman
         public void Load(ContentManager content)
         {
             _slender = content.Load<Texture2D>("enderman");
-
         }
+
+        //This updates his movement in the game
         public void Update(GameTime gameTime, Vector2 ponyPos)
         {
             bool moving = false;
             Vector2 movement = Vector2.Normalize(ponyPos - _position) * 1f;
 
+            #region MovementOfSlender
             if (movement.Y < 0 && Math.Abs(movement.Y) >= Math.Abs(movement.X))
             {
                 _wayToGo = 1;
                 moving = true;
             }
+        
             if (movement.X > 0 && Math.Abs(movement.X) >= Math.Abs(movement.Y))
             {
                 _wayToGo = 2;
                 moving = true;
             }
+            
             if (movement.Y > 0 && Math.Abs(movement.Y) >= Math.Abs(movement.X))
             {
                 _wayToGo = 0;
                 moving = true;
             }
+            
             if (movement.X < 0 && Math.Abs(movement.X) >= Math.Abs(movement.Y))
             {
                 _wayToGo = 3;
                 moving = true;
             }
+            
             _position += movement;
+            #endregion
+
+            #region TheSpeedOfSlendermansMovement
             if (moving)
             {
                 _animTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -95,12 +107,16 @@ namespace MyLittlePonySlenderMan
                     _animTimer -= 0.25f;
                 }
             }
+            
             else
             {
                 _frame = 1;
                 _animTimer = 0;
             }
+            #endregion
         }
+
+        //Draws slendermans movement
         public void Draw(SpriteBatch spriteBatch, Vector2 cameraPos)
         {
             Rectangle target = _frames[_wayToGo, _frame];
