@@ -1,5 +1,8 @@
 Content\background.xnb
+<<<<<<< HEAD
 Content\creeper2.xnb
+=======
+>>>>>>> origin/master
 Content\myLittlePony.xnb
 Content\blackhole.xnb
 Content\appleJack.xnb
@@ -17,3 +20,7 @@ Content\SpriteFont1.xnb
 Content\smallpack.xnb
 Content\bigpack.xnb
 Content\MySlenderPony2.xnb
+<<<<<<< HEAD
+=======
+Content\background - Edit110413 - Darker 2.xnb
+>>>>>>> origin/master
