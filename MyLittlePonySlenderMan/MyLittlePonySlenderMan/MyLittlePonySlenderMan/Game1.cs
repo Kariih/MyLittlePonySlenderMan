@@ -197,22 +197,18 @@ namespace MyLittlePonySlenderMan
 
                         if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
                         {
-                            if(!_background.crashRight)
                             _cameraPosition.X += _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
                         {
-                            if(!_background.crashLeft)
                             _cameraPosition.X -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W))
                         {
-                            if(!_background.crashUp)
                             _cameraPosition.Y -= _speed;
                         }
                         if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S))
                         {
-                            if(!_background.crashDown)
                             _cameraPosition.Y += _speed;
                         }
                         #endregion
@@ -281,7 +277,7 @@ namespace MyLittlePonySlenderMan
                 _pony.Draw(spriteBatch);
                 _slender.Draw(spriteBatch, _cameraPosition);
             }
-           // spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
+           spriteBatch.Draw(_blackHole, Vector2.Zero, Color.White);
             if (!_isPlaying)
             {
                 _ponyButtons.Draw(spriteBatch);
